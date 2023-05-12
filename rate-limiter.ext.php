@@ -14,10 +14,20 @@ class RateLimiter {
 
 	//Configurations
 	private array $config = array(
+	
+		//Time to ban the user if he exceeds the limit of requests
 		'ban_time'			=> 300,
+		
+		//Maximum number of requests to be accepted on a certain time interval
 		'max_requests'		=> 30,
+		
+		//Time interval to be considered when counting the user requests
 		'time_interval'		=> 15,
+		
+		//Path to the file to be shown to the user when he exceeds the limit of requests, preferably HTML
 		'page_request_ban'	=> null, 
+		
+		//Json paylot to return to the user when he exceeds the limit of requests, when the accept header calls for json
 		'json_request_ban'	=> array(
 			'error'				=> true, 
 			'message'			=> 'This request was canceled due to the amount of requests done in a short interval if time. Try again after a few minutes, or contact us if you think this is a mistake.'
